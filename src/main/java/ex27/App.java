@@ -71,15 +71,21 @@ public class App {
         // input employee ID
         System.out.print("Enter your employee ID: ");
         String employeeID = input.nextLine();
+
+       boolean check1 = validateFirstName(firstName);
+       boolean check2 = validateLastName(lastName);
+       boolean check3 = validateZipCode(zipCode);
+       boolean check4 = validateEmployeeID(employeeID);
+       validateInput(check1, check2, check3, check4);
     }
 
-    public void validateInput(String firstName, String lastName, String zipCode, String employeeID) {
-        if (validateFirstName(firstName) && validateLastName(lastName) && validateZipCode(zipCode) && validateEmployeeID(employeeID)) {
+    public static void validateInput(boolean check1, boolean check2, boolean check3, boolean check4) {
+        if (check1 && check2 && check3 && check4) {
             System.out.println("There were no errors found.");
         }
     }
 
-    public boolean validateFirstName(String firstName) {
+    public static boolean validateFirstName(String firstName) {
         if (firstName.length() < 2) {
             System.out.println("The first name must be at least 2 characters long.");
             return false;
@@ -87,7 +93,7 @@ public class App {
         return true;
     }
 
-    public boolean validateLastName(String lastName) {
+    public static boolean validateLastName(String lastName) {
         if (lastName.length() < 2) {
             System.out.println("The last name must be at least 2 characters long.");
             if (lastName.isEmpty()) System.out.println("The last name must be filled in.");
@@ -96,7 +102,7 @@ public class App {
         return true;
     }
 
-    public boolean validateZipCode (String zipCode) {
+    public static boolean validateZipCode (String zipCode) {
 
         char[] zip = zipCode.toCharArray();
 
@@ -109,7 +115,7 @@ public class App {
         return true;
     }
 
-    public boolean validateEmployeeID (String employeeID) {
+    public static boolean validateEmployeeID (String employeeID) {
         char[] ID = employeeID.toCharArray();
         boolean valid = true;
         if (!Character.isLetter(ID[0]) || !Character.isLetter(ID[1])) valid = false;
@@ -118,7 +124,7 @@ public class App {
             if (!Character.isDigit(ID[i])) valid = false;
         }
         if (!valid) {
-            System.out.println("The zipcode must be a 5 digit number.");
+            System.out.println("The employee ID must be in the format of AA-1234.");
         }
         return valid;
     }

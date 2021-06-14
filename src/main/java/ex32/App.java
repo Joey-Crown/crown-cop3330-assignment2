@@ -100,15 +100,15 @@ public class App {
         double rand = 0;
 
         if (difficulty == 1) {
-            rand = (Math.random() * ((10 - 1) + 1));
+            rand = (Math.random() * 10);
         }
         if (difficulty == 2) {
-            rand = (Math.random() * ((100 - 1) + 1));
+            rand = (Math.random() * 100);
         }
         if (difficulty == 3) {
-            rand = (Math.random() * ((1000 - 1) + 1));
+            rand = (Math.random() * 1000);
         }
 
-        return (int) Math.round(rand);
+        return (int) Math.floor(rand);
     }
 }

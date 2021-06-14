@@ -23,7 +23,7 @@ public class PaymentCalculator {
 
         // formula to find the number of months;
         double months = Math.log(1 + (rounded) * (1 - Math.pow(1 + apr, 30) ));
-        months = months * (-1/30);
+        months = months * (-1.0/30.0);
         months = months / Math.log(1 + apr);
 
         months = Math.ceil(months);
