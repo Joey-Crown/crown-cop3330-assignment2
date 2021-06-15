@@ -67,7 +67,7 @@ public class App {
 
     }
 
-    private static void compareStrings(char[] searching) {
+    public static void compareStrings(char[] searching) {
         for (int i = 0; i < records.size(); i++) {
             char[] searched = records.get(i).get("First Name").toCharArray();
             int counter = 0;
